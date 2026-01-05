@@ -11,7 +11,7 @@ export default function VideosSection() {
     <section className="bg-black text-white py-10">
 
       {/* Heading */}
-      <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 xl:mb-30 px-4 sm:px-6 md:px-8 lg:px-4 xl:px-6">
+      <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 xl:mb-30 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-10">
         <H2 className="text-[#f5c518] text-2xl sm:text-3xl md:text-4xl lg:text-[3.2rem] xl:text-[3.8rem] font-extrabold tracking-widest">
           VIDEOS
         </H2>
@@ -21,7 +21,7 @@ export default function VideosSection() {
       </div>
 
       {/* Content */}
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-4 xl:px-6">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-20 xl:px-20 2xl:px-20">
         <div className="grid gap-8 sm:gap-12 md:gap-16 lg:gap-20 grid-cols-1 lg:grid-cols-2">
 
           {/* LEFT */}

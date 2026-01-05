@@ -32,16 +32,6 @@ export default function Home() {
         </div>
         {/* Single Overlay - Very light for better image visibility */}
         <div className="absolute inset-0 bg-black/20 z-10" />
-        
-        {/* Gradient Transition to Black Background */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none"
-          style={{
-            height: '50vh',
-            minHeight: '400px',
-            background: 'linear-gradient(360deg, #000000 27.59%, rgba(0, 0, 0, 0.547297) 65.48%, rgba(0, 0, 0, 0) 88.54%)'
-          }}
-        />
       </section>
       {/* Upcoming Events Section */}
       <section className="bg-black py-10 px-2 sm:px-4">
@@ -98,7 +88,7 @@ function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
               src={event.banner_image}
               alt={event.city}
               fill
-              className="object-cover object-center w-full h-full"
+              className="object-fit w-full h-full"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={event.id <= 3}
             />

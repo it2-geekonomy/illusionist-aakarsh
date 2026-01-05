@@ -7,33 +7,66 @@ export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   return (
-    <main className="min-h-screen bg-black py-10 px-2 sm:px-4">
-      <h1 className="text-center text-4xl sm:text-5xl font-bold text-yellow-400 mb-10 sm:mb-14 tracking-wide">
-        Upcoming Events
-      </h1>
-
-      <div
-        className=" w-full max-w-[1800px] mx-auto px-2 sm:px-4 md:px-8 grid gap-6 sm:gap-8 grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
-      >
-        {events.map((event) => (
-          <EventCard
-            key={event.id}
-            event={event}
-            onClick={() => setSelectedEvent(event)}
+    <main className="relative w-full overflow-hidden">
+      <section className="relative w-full overflow-hidden">
+        {/* Desktop Image */}
+        <div className="relative w-full md:aspect-[21/9] hidden md:block">
+          <Image
+            src="/images/event-banner-image.webp"
+            alt="Illusionist Axe"
+            fill
+            priority
+            className="w-full h-full object-cover"
+            sizes="100vw"
           />
-        ))}
-      </div>
-
-      {/* Event Detail Modal */}
-      {selectedEvent && (
-        <EventModal
-          event={selectedEvent}
-          onClose={() => setSelectedEvent(null)}
+        </div>
+        {/* Mobile Image */}
+       <div className="relative block md:hidden w-full aspect-[10/13]">
+          <Image
+            src="/images/hero-image-mobile.jpg"
+            alt="Illusionist Axe"
+            fill
+            priority
+             className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Single Overlay - Very light for better image visibility */}
+        <div className="absolute inset-0 bg-black/20 z-10" />
+        
+        {/* Gradient Transition to Black Background */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none"
+          style={{
+            height: '50vh',
+            minHeight: '400px',
+            background: 'linear-gradient(360deg, #000000 27.59%, rgba(0, 0, 0, 0.547297) 65.48%, rgba(0, 0, 0, 0) 88.54%)'
+          }}
         />
+      </section>
+      {/* Upcoming Events Section */}
+      <section className="bg-black py-10 px-2 sm:px-4">
+        <h2 className="text-center text-4xl sm:text-5xl font-bold text-yellow-400 mb-10 sm:mb-14 tracking-wide">
+          Upcoming Events
+        </h2>
+
+        <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-4 md:px-8 grid gap-6 sm:gap-8 grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+          {events.map((event) => (
+            <EventCard
+              key={event.id}
+              event={event}
+              onClick={() => setSelectedEvent(event)}
+            />
+          ))}
+        </div>
+      </section>
+
+      {selectedEvent && (
+        <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
       )}
     </main>
   );
 }
+
 
 function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
   const isPlaceholder = !event.banner_image && !event.city;
@@ -65,8 +98,9 @@ function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
               src={event.banner_image}
               alt={event.city}
               fill
-              className="object-fit  w-full h-full"
-              sizes="(max-width: 640px) 100vw, 640px"
+              className="object-cover object-center w-full h-full"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              priority={event.id <= 3}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40" />
           </div>
@@ -122,8 +156,8 @@ function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
         "
         onClick={(e) => e.stopPropagation()}
       >
-        {/* City Image */}
-        <div className="relative w-full"> <Image src={event.banner_image} alt={event.city} width={1200} height={400} className="w-full h-auto rounded-t-2xl" /> </div>
+         {/* City Image */}
+         <div className="relative w-full"> <Image src={event.banner_image} alt={event.city} width={1200} height={400} className="w-full h-auto rounded-t-2xl" /> </div>
 
         {/* Event Details */}
         <div className="bg-black p-4 sm:p-6 md:p-8 text-white text-center space-y-3 sm:space-y-4">

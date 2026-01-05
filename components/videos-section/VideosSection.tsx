@@ -91,7 +91,7 @@ export default function VideosSection() {
                 rel="noopener noreferrer"
                 className="inline-block bg-[#f5c518] text-black font-bold px-4 sm:px-6 py-2 rounded-xl text-sm sm:text-base"
               >
-                Watch on YouTube
+                Watch on YouTube...
               </a>
             </div>
 

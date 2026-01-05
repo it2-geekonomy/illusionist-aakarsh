@@ -10,24 +10,24 @@ export default function Home() {
     <main className="relative w-full overflow-hidden">
       <section className="relative w-full overflow-hidden">
         {/* Desktop Image */}
-        <div className="relative w-full md:aspect-[21/9] hidden md:block">
+        <div className="relative w-full h-screen hidden md:block bg-black">
           <Image
             src="/images/event-banner-image.webp"
             alt="Illusionist Axe"
             fill
             priority
-            className="w-full h-full object-cover"
+            className="object-contain object-center"
             sizes="100vw"
           />
         </div>
         {/* Mobile Image */}
-       <div className="relative block md:hidden w-full aspect-[10/13]">
+        <div className="relative block md:hidden w-full  aspect-[10/13]">
           <Image
             src="/images/hero-image-mobile.jpg"
             alt="Illusionist Axe"
             fill
             priority
-             className="w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         {/* Single Overlay - Very light for better image visibility */}
@@ -146,8 +146,8 @@ function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
         "
         onClick={(e) => e.stopPropagation()}
       >
-         {/* City Image */}
-         <div className="relative w-full"> <Image src={event.banner_image} alt={event.city} width={1200} height={400} className="w-full h-auto rounded-t-2xl" /> </div>
+        {/* City Image */}
+        <div className="relative w-full"> <Image src={event.banner_image} alt={event.city} width={1200} height={400} className="w-full h-auto rounded-t-2xl" /> </div>
 
         {/* Event Details */}
         <div className="bg-black p-4 sm:p-6 md:p-8 text-white text-center space-y-3 sm:space-y-4">

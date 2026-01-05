@@ -1,6 +1,8 @@
+import VideosSection from "../components/videos-section/VideosSection";
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black">
+    <main className="min-h-screen">
+    <section className="min-h-screen flex items-center justify-center bg-black">
       <div className="p-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center shadow-2xl">
         <h1 className="text-4xl font-extrabold mb-4">
           Tailwind CSS is Working 🚀
@@ -13,6 +15,8 @@ export default function Home() {
           Test Button
         </button>
       </div>
+      </section>
+      <VideosSection />
     </main>
   );
 }

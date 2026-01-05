@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import Navbar from "@/components/navbar/Navbar";
 const goldmanBold = localFont({
   src: "../fonts/fonts/fonnts.com-Goldman_Bold.ttf",
   variable: "--font-goldman-bold",
@@ -25,6 +25,7 @@ export default function RootLayout({
         className={`${goldmanBold.variable} antialiased`}
         style={{ fontFamily: goldmanBold.style.fontFamily }}
       >
+        <Navbar />
         {children}
       </body>
     </html>

@@ -16,7 +16,7 @@ export default function Home() {
             alt="Illusionist Axe"
             fill
             priority
-            className="object-contain object-center"
+            className="object-contain object-center "
             sizes="100vw"
           />
         </div>

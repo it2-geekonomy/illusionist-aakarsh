@@ -8,26 +8,28 @@ export default function Home() {
 
   return (
     <main className="relative w-full overflow-hidden">
-      <section className="relative w-full overflow-hidden">
+      <section className="relative w-full ">
         {/* Desktop Image */}
-        <div className="relative w-full h-screen hidden md:block bg-black">
+        <div className="bg-black hidden md:block w-full">
           <Image
             src="/images/event-banner-image.webp"
             alt="Illusionist Axe"
-            fill
+            width={2000}
+            height={900}
             priority
-            className="object-contain object-center "
+            className="w-full h-auto object-contain"
             sizes="100vw"
           />
         </div>
         {/* Mobile Image */}
-        <div className="relative block md:hidden w-full  aspect-[10/13]">
+        <div className="relative block md:hidden w-full bg-black">
           <Image
             src="/images/hero-image-mobile.jpg"
             alt="Illusionist Axe"
-            fill
+            width={900}
+            height={1400}
             priority
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-contain"
           />
         </div>
         {/* Single Overlay - Very light for better image visibility */}

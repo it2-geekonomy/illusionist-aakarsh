@@ -63,7 +63,7 @@ export default function Navbar() {
           <NavLinks />
         </nav>
         <P className="hidden lg:flex items-center ml-auto">
-          <button className="bg-yellow-400 text-black font-bold text-[20px] sm:text-[18px] md:text-[19px] lg:text-[14px] px-4 py-3 rounded-full hover:bg-yellow-300 transition">
+          <button className="bg-yellow-400 text-black font-bold px-4 py-3 rounded-full hover:bg-yellow-300 transition">
             <Strong>TICKETS</Strong>
           </button>
         </P>

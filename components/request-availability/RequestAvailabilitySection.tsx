@@ -46,21 +46,21 @@ export default function RequestAvailabilitySection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto pl-12 sm:pl-16 md:pl-20 lg:pl-24 xl:pl-32 pr-4 sm:pr-6 md:pr-8 lg:pr-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:pl-24 xl:pl-32 lg:pr-12">
         {/* Title */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <H2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl font-bold uppercase tracking-wider whitespace-normal sm:whitespace-nowrap text-white px-2">
+          <H2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold uppercase tracking-wider text-white px-2 sm:px-4 leading-tight whitespace-normal lg:whitespace-nowrap">
             Request Availability & Corporate Proposal
           </H2>
         </div>
 
         {/* Form */}
-        <div className="max-w-5xl ml-auto mr-0">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="max-w-5xl mx-auto lg:ml-auto lg:mr-0">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             {/* Two Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {/* Left Column */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <input
                     type="text"
@@ -102,7 +102,7 @@ export default function RequestAvailabilitySection() {
               </div>
 
               {/* Right Column */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
                   <input
                     type="text"

@@ -21,7 +21,6 @@ export default function Banner() {
         h-auto md:h-[100vh]
       "
     >
-      {/* MOBILE HEIGHT (16:9) */}
       <div className="relative w-full aspect-[16/9] md:hidden">
         {BANNER_IMAGES.map((image, index) => (
           <div
@@ -40,8 +39,6 @@ export default function Banner() {
           </div>
         ))}
       </div>
-
-      {/* DESKTOP (UNCHANGED) */}
       <div className="hidden md:block absolute inset-0">
         {BANNER_IMAGES.map((image, index) => (
           <div
@@ -60,8 +57,6 @@ export default function Banner() {
           </div>
         ))}
       </div>
-
-      {/* DOTS */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {BANNER_IMAGES.map((_, i) => (
           <button

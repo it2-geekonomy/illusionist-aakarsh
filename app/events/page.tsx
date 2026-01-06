@@ -5,9 +5,8 @@ import { events, Event } from "@/data/events";
 
 export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-
   return (
-    <main className="relative w-full overflow-hidden">
+    <main className="relative w-full min-h-[100dvh] bg-black flex flex-col">
       <section className="relative w-full ">
         {/* Desktop Image */}
         <div className="bg-black hidden md:block w-full">
@@ -41,17 +40,29 @@ export default function Home() {
           Upcoming Events
         </h2>
 
-        <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-4 md:px-8 grid gap-6 sm:gap-8 grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-          {events.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              onClick={() => setSelectedEvent(event)}
-            />
-          ))}
+        <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-4 md:px-8 flex-1">
+          {events.length === 0 ? (
+            <div className="text-center">
+              <p className="text-xl sm:text-2xl font-semibold text-gray-300">
+                No upcoming events right now.
+              </p>
+              <p className="text-sm sm:text-base text-gray-400 mt-2">
+                Please check back soon!
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:gap-8 grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+              {events.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  onClick={() => setSelectedEvent(event)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
-
       {selectedEvent && (
         <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
       )}
@@ -59,28 +70,12 @@ export default function Home() {
   );
 }
 
-
 function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
   const isPlaceholder = !event.banner_image && !event.city;
-
   return (
     <div
       onClick={onClick}
-      className="
-        w-full
-        min-w-[300px]
-        sm:min-w-[320px]
-        md:min-w-[360px]
-        lg:min-w-[400px]
-        max-w-[640px]
-        rounded-xl sm:rounded-2xl overflow-hidden
-        shadow-[0_0_25px_rgba(168,85,247,0.35)]
-        bg-white border-2 sm:border-4
-        cursor-pointer
-        transition-transform hover:scale-105
-        mx-auto
-        flex flex-col
-      "
+      className="w-full min-w-[300px] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] max-w-[640px] rounded-xl sm:rounded-2xl overflow-hidden  bg-white border-2 sm:border-4 cursor-pointer transition-transform hover:scale-105 mx-auto flex flex-col"
     >
       {!isPlaceholder ? (
         <>
@@ -97,35 +92,28 @@ function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40" />
           </div>
           {/* Bottom Section */}
-          <div
-            className="
-              bg-white
-              px-3 sm:px-4 md:px-5 lg:px-6 
-              py-3 sm:py-3.5 md:py-4 lg:py-4.5
-              flex items-start sm:items-center
-              gap-2.5 sm:gap-3 md:gap-4 lg:gap-5
-              min-h-[110px] sm:min-h-[115px] md:min-h-[125px] lg:min-h-[135px]
-            "
-          >
+          <div className="bg-white px-3 sm:px-4 md:px-5 lg:px-6 py-3 sm:py-3.5 md:py-4 lg:py-4.5 flex items-start sm:items-center gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 min-h-[110px] sm:min-h-[115px] md:min-h-[125px] lg:min-h-[135px]">
             {/* Date */}
-            <div className="flex-shrink-0 min-w-[65px] sm:min-w-[75px] md:min-w-[85px] lg:min-w-[95px] pt-1">
-              <div className="text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide whitespace-nowrap">
-                {event.date.split(' ')[0]}
+            {/* Date */}
+            <div className="flex-shrink-0 min-w-[78px] pt-1">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-wide">
+                {event.date.split(" ")[0]}
               </div>
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-none mt-0.5">
-                {event.date.split(' ')[1]}
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black leading-none mt-0.5">
+                {event.date.split(" ")[1]}
               </div>
             </div>
 
             {/* Venue / Time */}
-            <div className="flex-1 min-w-0 space-y-1.5 sm:space-y-2">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold break-words leading-snug">
-                <span className="whitespace-nowrap">Venue:</span> {event.venue || "--"}
+            <div className="flex-1 min-w-0 space-y-2">
+              <p className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug">
+                <span className="font-bold">Venue:</span> {event.venue || "--"}
               </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold break-words leading-snug">
-                <span className="whitespace-nowrap">Time:</span> {event.time || "--"}
+              <p className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug">
+                <span className="font-bold">Time:</span> {event.time || "--"}
               </p>
             </div>
+
           </div>
         </>
       ) : (
@@ -143,20 +131,17 @@ function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
     >
       <div
         className="
-          relative w-full max-w-md bg-black rounded-xl sm:rounded-2xl overflow-hidden
-          shadow-lg
+          relative w-full max-w-md bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-lg
         "
         onClick={(e) => e.stopPropagation()}
       >
         {/* City Image */}
         <div className="relative w-full"> <Image src={event.banner_image} alt={event.city} width={1200} height={400} className="w-full h-auto rounded-t-2xl" /> </div>
-
         {/* Event Details */}
         <div className="bg-black p-4 sm:p-6 md:p-8 text-white text-center space-y-3 sm:space-y-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             {event.city.charAt(0) + event.city.slice(1).toLowerCase()}
           </h2>
-
           <div className="space-y-2 sm:space-y-3 text-base sm:text-lg md:text-xl lg:text-2xl">
             <p className="font-semibold min-h-[1.5rem]">
               Venue: {event.venue}
@@ -167,17 +152,7 @@ function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
           </div>
 
           {/* Book Tickets Button */}
-          <button
-            className="
-              mt-4 sm:mt-6 w-full
-              bg-yellow-400 text-black
-              font-bold text-base sm:text-lg md:text-xl
-              py-2.5 sm:py-3 px-4 sm:px-6
-              rounded-lg sm:rounded-xl
-              hover:bg-yellow-500
-              transition-colors
-            "
-          >
+          <button className="mt-4 sm:mt-6 w-full bg-yellow-400 text-black font-bold text-base sm:text-lg md:text-xl py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl hover:bg-yellow-500 transition-colors">
             Book tickets
           </button>
         </div>

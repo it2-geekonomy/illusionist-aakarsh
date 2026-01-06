@@ -20,7 +20,7 @@ export default function PublicShowsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-3 sm:gap-4 lg:gap-4">
           
           {/* Left Side - Promotional Image Placeholder */}
-          <div className="w-full order-2 lg:order-1 flex items-center justify-center lg:justify-start lg:-ml-4 xl:-ml-6">
+          <div className="w-full order-1 flex items-center justify-center lg:justify-start lg:-ml-4 xl:-ml-6">
             <div className="relative w-full max-w-[500px] lg:max-w-[620px] aspect-square lg:aspect-[4/3] bg-gray-300 rounded-lg overflow-hidden">
               {/* Placeholder - Replace with actual image when available */}
               <div className="absolute inset-0 flex items-center justify-center bg-gray-700">
@@ -42,7 +42,7 @@ export default function PublicShowsSection() {
           </div>
 
           {/* Right Side - Show Listings */}
-          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 order-1 lg:order-2">
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 order-2">
             {SHOWS.map((show) => (
               <ShowCard key={show.id} show={show} />
             ))}

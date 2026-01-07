@@ -8,12 +8,20 @@ import ProfileSection from "@/components/profile-section";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Banner/>
-      <About />
+      <Banner />
+      <section id="about">
+        <About />
+      </section>
       <ProfileSection />
-      <VideosSection />
-      <PublicShowsSection />
+      <section id="showreel">
+        <VideosSection />
+      </section>
+      <section id="publicshows">
+        <PublicShowsSection />
+      </section>
+      <section id="contact">
       <RequestAvailabilitySection />
+      </section>
     </main>
   );
 }

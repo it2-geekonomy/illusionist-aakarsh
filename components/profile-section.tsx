@@ -4,9 +4,9 @@ import Image from 'next/image';
 export default function ProfileSection() {
   return (
     <section className="w-full bg-black">
-      <div className="w-full flex flex-col md:flex-row">
+      <div className="w-full flex flex-col lg:flex-row">
         {/* Left Side - Image */}
-        <div className="w-full md:w-1/2 relative aspect-4/3 md:aspect-auto md:h-[600px] lg:h-[850px]">
+        <div className="w-full lg:w-[55%] relative aspect-4/3 md:aspect-auto md:h-[600px] lg:h-[750px] xl:h-[1000px] 2xl:h-[850px]">
           <Image
             src="/aboutus.webp"
             alt="Aakarsh - Illusionist"
@@ -17,7 +17,7 @@ export default function ProfileSection() {
         </div>
 
         {/* Right Side - Content */}
-        <div className="w-full md:w-1/2 bg-black flex flex-col justify-start pt-0 pb-6 px-6 md:pb-8 md:px-8 lg:pb-12 lg:px-12 xl:pb-16 xl:px-16">
+        <div className="w-full lg:w-1/2 bg-black flex flex-col justify-start pt-6 lg:pt-0 pb-6 px-6 md:pb-8 md:px-8 lg:pb-12 lg:px-8 xl:pb-16">
           <div className="space-y-6">
             <H5 className="text-white text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed text-justify">
               He has performed across <Strong>10+ countries</Strong> and appeared on various television shows. He has{' '}
@@ -26,7 +26,7 @@ export default function ProfileSection() {
             </H5>
 
             {/* Download Profile Button */}
-            <div className="pt-4 md:pt-6 text-center">
+            <div className="pt-4 md:pt-6 lg:pt-2 xl:pt-6 text-center">
               <button className="bg-[#FFD700] text-black font-bold px-8 py-3 md:py-4 rounded-3xl text-[clamp(0.875rem,1.2vw,1rem)] hover:bg-[#FFC700] transition-colors">
                <H5> Download Profile </H5>
               </button>

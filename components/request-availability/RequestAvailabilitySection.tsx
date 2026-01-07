@@ -49,8 +49,8 @@ export default function RequestAvailabilitySection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:pl-24 xl:pl-32 lg:pr-12">
         {/* Title */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <H2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold uppercase tracking-wider text-white px-2 sm:px-4 leading-tight whitespace-normal lg:whitespace-nowrap">
-            Request Availability & Corporate Proposal
+          <H2 className="text-[clamp(14px,2.7vw,18px)] sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold uppercase tracking-tight sm:tracking-wider text-white px-2 sm:px-4 leading-snug whitespace-normal sm:whitespace-nowrap">
+            Request Availability &<br className="sm:hidden" /> Corporate Proposal
           </H2>
         </div>
 

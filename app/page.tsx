@@ -31,7 +31,6 @@ export default function Home() {
       </section>
       <GallerySection />
       <VideosSection />
-      <PublicShowsSection />
       <section id="showreel">
         <VideosSection />
       </section>

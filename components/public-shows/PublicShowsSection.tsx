@@ -111,8 +111,8 @@ function ShowCard({ show }: ShowCardProps) {
       {/* Content - Responsive layout - Above all overlays */}
       <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-center p-3 sm:p-5 md:p-6 h-full min-h-[180px] sm:min-h-0">
         {/* Left Section - Date (stacked vertically) */}
-        <div className="flex-shrink-0 mb-2 sm:mb-0 px-1 sm:px-4 md:px-6 flex flex-col items-start justify-center">
-          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
+        <div className="flex-shrink-0 mb-2 sm:mb-0 px-1 sm:px-4 md:px-6 flex flex-col items-start justify-center w-[80px] sm:w-[100px] md:w-[120px]">
+          <span className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
             {show.date}
           </span>
           <span className="text-base sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider mt-0.5 sm:mt-1">
@@ -121,7 +121,7 @@ function ShowCard({ show }: ShowCardProps) {
         </div>
 
         {/* White vertical line divider */}
-        <div className="hidden sm:block w-[2px] h-full bg-white mx-2 md:mx-4"></div>
+        <div className="hidden sm:block w-[2px] h-full bg-white mx-2 md:mx-4 flex-shrink-0"></div>
 
         {/* Middle Section - Details */}
         <div className="flex-1 w-full sm:w-auto px-1 sm:px-4 md:px-6 flex flex-col justify-center gap-0.5 sm:gap-1.5">

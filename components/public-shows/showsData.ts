@@ -24,7 +24,7 @@ export const SHOWS: Show[] = [
     date: 22,
     month: "FEB",
     city: "Hyderabad",
-    venue: "",
+    venue: "Vyoma Artspace",
     time: "7:00 PM onwards",
     backgroundImage: "/public-shows background image/public-shows background image2.webp",
   },

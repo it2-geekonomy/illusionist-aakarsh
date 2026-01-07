@@ -79,7 +79,7 @@ function ShowCard({ show }: ShowCardProps) {
   
   return (
     <div 
-      className="relative overflow-hidden border border-white w-full rounded-2xl h-[145px] sm:h-[160px] md:h-[170px]"
+      className="relative overflow-hidden border border-white w-full rounded-2xl min-h-[180px] sm:h-[160px] md:h-[170px]"
     >
       {/* Background image with gradient overlay - half black, half blurred image */}
       <div className="absolute inset-0">
@@ -93,9 +93,9 @@ function ShowCard({ show }: ShowCardProps) {
             }}
           />
         )}
-        {/* Blurred city name text overlay - positioned on right side only */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-4 md:pr-6 lg:pr-8 z-10">
-          <span className="text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-bold text-white/40 blur-[6px] sm:blur-[8px] md:blur-[10px] select-none pointer-events-none">
+        {/* Blurred city name text overlay - positioned on right side only, hidden on mobile */}
+        <div className="hidden sm:flex absolute right-0 top-0 bottom-0 w-1/2 items-center justify-end pr-4 md:pr-6 lg:pr-8 z-10">
+          <span className="text-[8rem] md:text-[10rem] lg:text-[12rem] font-bold text-white/40 blur-[8px] md:blur-[10px] select-none pointer-events-none">
             {cityName}
           </span>
         </div>
@@ -109,41 +109,41 @@ function ShowCard({ show }: ShowCardProps) {
       </div>
 
       {/* Content - Responsive layout - Above all overlays */}
-      <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-center p-4 sm:p-5 md:p-6 h-full">
+      <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-center p-3 sm:p-5 md:p-6 h-full min-h-[180px] sm:min-h-0">
         {/* Left Section - Date (stacked vertically) */}
-        <div className="flex-shrink-0 mb-3 sm:mb-0 px-2 sm:px-4 md:px-6 flex flex-col items-start justify-center">
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
+        <div className="flex-shrink-0 mb-2 sm:mb-0 px-1 sm:px-4 md:px-6 flex flex-col items-start justify-center w-[80px] sm:w-[100px] md:w-[120px]">
+          <span className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none">
             {show.date}
           </span>
-          <span className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider mt-1">
+          <span className="text-base sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider mt-0.5 sm:mt-1">
             {show.month}
           </span>
         </div>
 
         {/* White vertical line divider */}
-        <div className="hidden sm:block w-[2px] h-full bg-white mx-2 md:mx-4"></div>
+        <div className="hidden sm:block w-[2px] h-full bg-white mx-2 md:mx-4 flex-shrink-0"></div>
 
         {/* Middle Section - Details */}
-        <div className="flex-1 w-full sm:w-auto px-2 sm:px-4 md:px-6 flex flex-col justify-center gap-1 sm:gap-1.5">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+        <div className="flex-1 w-full sm:w-auto px-1 sm:px-4 md:px-6 flex flex-col justify-center gap-0.5 sm:gap-1.5">
+          <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white">
             {show.city}
           </h3>
           {show.venue && (
-            <p className="text-xs sm:text-sm md:text-base text-white">
+            <p className="text-xs sm:text-sm md:text-base text-white leading-tight">
               Venue: {show.venue}
             </p>
           )}
-          <p className="text-xs sm:text-sm md:text-base text-white">
+          <p className="text-xs sm:text-sm md:text-base text-white leading-tight">
             Time: {show.time}
           </p>
-          <div className="mt-2 sm:mt-3">
+          <div className="mt-1.5 sm:mt-3">
             <button
               onClick={() => {
                 if (show.ticketUrl) {
                   window.open(show.ticketUrl, "_blank");
                 }
               }}
-              className="bg-[#f5c518] text-black font-bold py-1.5 sm:py-2 px-4 sm:px-5 rounded-full text-xs sm:text-sm hover:bg-[#e5b508] transition-colors"
+              className="bg-[#f5c518] text-black font-bold py-1.5 sm:py-2 px-3 sm:px-5 rounded-full text-xs sm:text-sm hover:bg-[#e5b508] transition-colors"
             >
               Book Tickets
             </button>

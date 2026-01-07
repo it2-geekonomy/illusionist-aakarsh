@@ -1,0 +1,88 @@
+/* Phone container styles */
+.phone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+}
+
+/* Ensure phone border image scales properly */
+.phone-container > div {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Make sure border image covers entire container and is visible */
+.phone-container > div img {
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+/* Content inside phone border - responsive padding */
+.phone-content {
+  position: absolute;
+  top: clamp(7%, 9vw, 9%);
+  right: clamp(5%, 7vw, 7%);
+  bottom: clamp(7%, 9vw, 9%);
+  left: clamp(5%, 7vw, 7%);
+  border-radius: clamp(1.75rem, 3.5vw, 2.25rem);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Phone mockups container - responsive grid layout */
+.phone-mockups-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .phone-mockups-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+/* Desktop/Laptop: 3 columns */
+@media (min-width: 1024px) {
+  .phone-mockups-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+/* Larger desktop: 3 columns with clear gap */
+@media (min-width: 1361px) {
+  .phone-mockups-container {
+    gap: clamp(2.5rem, 2.5vw, 3rem);
+  }
+}
+
+/* 1920px and above: fixed clear gap */
+@media (min-width: 1920px) {
+  .phone-mockups-container {
+    gap: 3.5rem; /* 56px - clear, consistent gap at 1920px */
+  }
+}
+
+/* Responsive sizing for phone containers */
+@media (max-width: 768px) {
+  .phone-container {
+    margin-bottom: 0;
+  }
+  
+  .phone-content {
+    top: clamp(6%, 8vw, 8%);
+    right: clamp(4%, 6vw, 6%);
+    bottom: clamp(6%, 8vw, 8%);
+    left: clamp(4%, 6vw, 6%);
+  }
+}

@@ -8,7 +8,7 @@ export default function VideosSection() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <section className="bg-black text-white py-10">
+    <section className="bg-black text-white pt-4 pb-6 sm:pt-6 sm:pb-8 md:py-10 lg:py-12 xl:py-14">
 
       {/* Heading */}
       <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 xl:mb-30 px-4 sm:px-6 md:px-8 lg:px-4 xl:px-6">
@@ -102,4 +102,3 @@ export default function VideosSection() {
     </section>
   );
 }
-//gitcheck

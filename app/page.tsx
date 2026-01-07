@@ -15,7 +15,9 @@ export default function Home() {
         <About />
       </section>
       <ProfileSection />
+      <section id="gallery">
       <GallerySection />
+      </section>
       <VideosSection />
       <PublicShowsSection />
       <section id="showreel">

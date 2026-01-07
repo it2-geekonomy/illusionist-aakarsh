@@ -20,7 +20,7 @@ export default function Footer() {
       className="bg-black text-white py-10"
       style={{ borderTop: "2px solid gray", borderBottom: "2px solid gray" }}
     >
-      <div className="w-full flex flex-col items-center gap-4 px-4">
+      <div className="w-full flex flex-col items-center gap-4 px-0">
 
         <div className="flex flex-col items-center p-1 mt-2" style={{ border: "2px solid white" }}>
           <Image
@@ -40,7 +40,7 @@ export default function Footer() {
           style={{ height: "1px", backgroundColor: "gray" }}
         />
 
-        <div className="w-full px-6 mt-4 flex">
+        <div className="w-full px-0 sm:px-6 mt-4 flex">
           <Small className="text-sm text-white mx-auto sm:mx-0">
             © {currentYear} Illusionist Axe. All rights reserved.
           </Small>

@@ -10,8 +10,10 @@ import GallerySection from "../components/gallery-section/GallerySection";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Banner/>
-      <About />
+      <Banner />
+      <section id="about">
+        <About />
+      </section>
       <ProfileSection />
     <section className="min-h-screen flex items-center justify-center bg-black">
       <div className="p-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center shadow-2xl">
@@ -30,7 +32,15 @@ export default function Home() {
       <GallerySection />
       <VideosSection />
       <PublicShowsSection />
+      <section id="showreel">
+        <VideosSection />
+      </section>
+      <section id="publicshows">
+        <PublicShowsSection />
+      </section>
+      <section id="contact">
       <RequestAvailabilitySection />
+      </section>
     </main>
   );
 }

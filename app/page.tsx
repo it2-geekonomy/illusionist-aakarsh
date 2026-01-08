@@ -4,6 +4,7 @@ import PublicShowsSection from "../components/public-shows/PublicShowsSection";
 import RequestAvailabilitySection from "../components/request-availability/RequestAvailabilitySection";
 import About from "@/components/about";
 import ProfileSection from "@/components/profile-section";
+import MediaSection from "../components/media-section/MediaSection";
 
 import GallerySection from "../components/gallery-section/GallerySection";
 
@@ -20,6 +21,9 @@ export default function Home() {
       </section>
       <section id="showreel">
         <VideosSection />
+      </section>
+      <section id="media">
+        <MediaSection />
       </section>
       <section id="publicshows">
         <PublicShowsSection />

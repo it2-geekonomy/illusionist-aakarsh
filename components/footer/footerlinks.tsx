@@ -2,7 +2,7 @@
 import { H6 } from "../typography/typography";
 
 interface FooterLinksProps {
-    scrollToSection: (id?: string) => void;
+  scrollToSection: (id?: string) => void;
 }
 
 export function DesktopFooterLinks({ scrollToSection }: FooterLinksProps) {
@@ -36,7 +36,9 @@ export function DesktopFooterLinks({ scrollToSection }: FooterLinksProps) {
 export function MobileFooterLinks({ scrollToSection }: FooterLinksProps) {
   return (
     <div className="mt-4 w-full lg:hidden">
-      <H6 className="text-center mb-3 text-white">Navigation</H6>
+      <H6 className="text-center mb-3 text-white">
+        <span className="inline-block border-b-2 border-white pb-0">Navigation</span>
+      </H6>
       <div className="flex flex-col items-center space-y-2 w-full sm:flex-row sm:justify-between sm:space-y-0 sm:px-2">
         <H6
           onClick={() => scrollToSection()}

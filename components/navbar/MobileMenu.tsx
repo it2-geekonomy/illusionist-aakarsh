@@ -1,5 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import NavLinks from "./NavLinks";
 
@@ -12,6 +13,7 @@ export default function MobileMenu({
   onClose: () => void;
   onLinkClick?: () => void;
 }) {
+  const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
   const [exitDuration, setExitDuration] = useState(0.6);
   const [pendingScroll, setPendingScroll] = useState(false);
@@ -71,7 +73,13 @@ export default function MobileMenu({
               <NavLinks />
             </div>
 
-            <button className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-full">
+            <button 
+              onClick={() => {
+                router.push("/events");
+                onClose();
+              }}
+              className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-full"
+            >
               TICKETS
             </button>
           </div>

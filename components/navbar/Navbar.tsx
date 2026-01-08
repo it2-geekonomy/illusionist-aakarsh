@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 import { P, Strong } from "../typography/typography";
 export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [scrolledUp, setScrolledUp] = useState(false);
@@ -63,7 +65,10 @@ export default function Navbar() {
           <NavLinks />
         </nav>
         <P className="hidden lg:flex items-center ml-auto">
-          <button className="bg-yellow-400 text-black font-bold px-4 py-3 rounded-full hover:bg-yellow-300 transition">
+          <button 
+            onClick={() => router.push("/events")}
+            className="bg-yellow-400 text-black font-bold px-4 py-3 rounded-full hover:bg-yellow-300 transition"
+          >
             <Strong>TICKETS</Strong>
           </button>
         </P>

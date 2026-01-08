@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import NavLinks from "./NavLinks";
 
 export default function MobileMenu({
@@ -10,6 +11,7 @@ export default function MobileMenu({
   open: boolean;
   onClose: () => void;
 }) {
+  const router = useRouter();
 
   useEffect(() => {
     if (open) {
@@ -47,7 +49,13 @@ export default function MobileMenu({
               <NavLinks />
             </div>
 
-            <button className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-full">
+            <button 
+              onClick={() => {
+                router.push("/events");
+                onClose();
+              }}
+              className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-full"
+            >
               TICKETS
             </button>
           </div>

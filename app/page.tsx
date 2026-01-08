@@ -18,8 +18,6 @@ export default function Home() {
       <section id="gallery">
       <GallerySection />
       </section>
-      <VideosSection />
-      <PublicShowsSection />
       <section id="showreel">
         <VideosSection />
       </section>

@@ -4,7 +4,7 @@ import { SHOWS } from "./showsData";
 
 export default function PublicShowsSection() {
   return (
-    <section className="bg-black text-white py-10 sm:py-16 md:py-20 lg:py-24">
+    <section className="bg-black text-white pt-1 sm:pt-2 md:pt-4 lg:pt-6 pb-8 sm:pb-16 md:pb-20 lg:pb-24">
       {/* Header */}
       <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 md:px-8">
         <H2 className="text-[#f5c518] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-widest uppercase">

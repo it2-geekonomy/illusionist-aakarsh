@@ -30,7 +30,7 @@ export default function RequestAvailabilitySection() {
   };
 
   return (
-    <section className="relative bg-black text-white py-10 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section className="relative bg-black text-white pt-6 sm:pt-12 md:pt-16 lg:pt-20 pb-10 sm:pb-16 md:pb-20 lg:pb-24 overflow-hidden">
       {/* Background Image - Magician with Cards */}
       <div className="absolute inset-0">
         <div 
@@ -48,8 +48,8 @@ export default function RequestAvailabilitySection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:pl-24 xl:pl-32 lg:pr-12">
         {/* Title */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <H2 className="text-[clamp(14px,2.7vw,18px)] sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold uppercase tracking-tight sm:tracking-wider text-white px-2 sm:px-4 leading-snug whitespace-normal sm:whitespace-nowrap">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6 md:px-8">
+          <H2 className="text-[clamp(18px,4vw,24px)] sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-bold uppercase tracking-tight sm:tracking-wider text-white leading-tight sm:leading-snug md:leading-normal whitespace-normal break-words">
             Request Availability &<br className="sm:hidden" /> Corporate Proposal
           </H2>
         </div>

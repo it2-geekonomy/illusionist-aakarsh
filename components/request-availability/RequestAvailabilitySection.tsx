@@ -13,6 +13,12 @@ export default function RequestAvailabilitySection() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -20,13 +26,57 @@ export default function RequestAvailabilitySection() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear status message when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: "" });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // You can add API call here
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you! Your request has been submitted successfully. We'll respond within 12 business hours.",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          eventType: "",
+          eventLocation: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Failed to submit request. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,13 +206,33 @@ export default function RequestAvailabilitySection() {
               />
             </div>
 
+            {/* Status Messages */}
+            {submitStatus.type && (
+              <div
+                className={`p-4 rounded-lg ${
+                  submitStatus.type === "success"
+                    ? "bg-green-600/20 border border-green-500 text-green-300"
+                    : "bg-red-600/20 border border-red-500 text-red-300"
+                }`}
+              >
+                <P className="text-sm sm:text-base md:text-lg text-center">
+                  {submitStatus.message}
+                </P>
+              </div>
+            )}
+
             {/* Submit Button */}
             <div className="flex flex-col items-center gap-4">
               <button
                 type="submit"
-                className="bg-[#f5c518] text-black font-bold py-3 sm:py-4 px-8 sm:px-12 rounded-lg text-lg sm:text-xl md:text-2xl hover:bg-[#e5b508] transition-colors"
+                disabled={isSubmitting}
+                className={`bg-[#f5c518] text-black font-bold py-3 sm:py-4 px-8 sm:px-12 rounded-lg text-lg sm:text-xl md:text-2xl transition-colors ${
+                  isSubmitting
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-[#e5b508]"
+                }`}
               >
-                Submit Request
+                {isSubmitting ? "Submitting..." : "Submit Request"}
               </button>
               <P className="text-white font-bold text-lg sm:text-xl md:text-2xl">
                 Response Within 12 Business Hours

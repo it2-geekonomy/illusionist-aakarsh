@@ -8,7 +8,7 @@ import HashScrollHandler from "@/components/HashScrollHandler";
 import MediaSection from "../components/media-section/MediaSection";
 
 import GallerySection from "../components/gallery-section/GallerySection";
-
+import ClienteleSection from "../components/clientele-section/ClienteleSection";
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -18,6 +18,7 @@ export default function Home() {
         <About />
       </section>
       <ProfileSection />
+      <ClienteleSection />
       <section id="gallery">
       <GallerySection />
       </section>

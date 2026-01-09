@@ -62,7 +62,7 @@ export default function GallerySection() {
       {/* Mobile/Small Screen Carousel */}
       <div className="lg:hidden w-full overflow-hidden">
         <div className="relative flex items-center justify-center h-[180px] sm:h-[300px] md:h-[400px]">
-          <div className="relative w-full max-w-full flex items-center justify-between px-4 sm:px-6 md:px-12">
+          <div className="relative w-full max-w-full flex items-center justify-center gap-2 sm:gap-2.5 md:gap-3 px-4 sm:px-5 md:px-6 lg:px-8">
             {/* Navigation Arrow - Left */}
             <button
               onClick={prevCarousel}
@@ -86,32 +86,32 @@ export default function GallerySection() {
             </button>
 
             {/* Previous Image (Background, Left) */}
-            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4">
+            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0">
               <img
                 src={galleryImages[getPrevIndex(carouselIndex)]?.src}
                 alt={galleryImages[getPrevIndex(carouselIndex)]?.alt}
-                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-cover"
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-contain"
               />
             </div>
 
             {/* Current Image (Center, Large) */}
             <div
               onClick={() => openModal(galleryImages[carouselIndex], carouselIndex)}
-              className="relative z-20 cursor-pointer transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4"
+              className="relative z-20 cursor-pointer transition-all duration-300 flex-shrink-0"
             >
               <img
                 src={galleryImages[carouselIndex]?.src}
                 alt={galleryImages[carouselIndex]?.alt}
-                className="w-32 h-32 sm:w-44 sm:h-44 md:w-72 md:h-72 object-cover"
+                className="w-32 h-32 sm:w-44 sm:h-44 md:w-72 md:h-72 object-contain"
               />
             </div>
 
             {/* Next Image (Background, Right) */}
-            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4">
+            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0">
               <img
                 src={galleryImages[getNextIndex(carouselIndex)]?.src}
                 alt={galleryImages[getNextIndex(carouselIndex)]?.alt}
-                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-cover"
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-contain"
               />
             </div>
 

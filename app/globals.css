@@ -33,3 +33,29 @@ body {
 *::after {
   font-family: var(--font-goldman-bold), sans-serif !important;
 }
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-infinite-scroll {
+  display: inline-flex;
+  width: fit-content;
+  animation: infinite-scroll 90s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover - parent container controls all children */
+.scroll-container:hover .animate-infinite-scroll {
+  animation-play-state: paused !important;
+}
+
+/* Terrific Section Animations - Slower speed */
+.animate-terrific-scroll {
+  animation: infinite-scroll 40s linear infinite;
+}

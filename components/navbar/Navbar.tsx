@@ -39,12 +39,16 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   const handleLogoClick = () => {
-    if (pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      router.push("/");
-    }
-  };
+  if (pathname === "/") {
+ 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.history.replaceState(null, "", "/");
+  } else {
+    router.push("/");
+  }
+};
+
   return (
     <header
       className={`

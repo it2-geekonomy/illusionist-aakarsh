@@ -16,7 +16,7 @@ interface InstagramPost {
   comments_count: number;
 }
 
-export default function MediaPage() {
+export default function MediaSection() {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -56,10 +56,10 @@ export default function MediaPage() {
   };
 
   return (
-    <main className="relative w-full min-h-[100dvh] bg-black">
-      <section className="w-full max-w-[1800px] mx-auto px-[clamp(1rem,4vw,3rem)] py-[clamp(3rem,8vw,6rem)]">
+    <section className="relative w-full bg-black">
+      <div className="w-full max-w-[1800px] mx-auto px-[clamp(1rem,4vw,3rem)] py-[clamp(2rem,5vw,4rem)]">
         {/* MEDIA Title */}
-        <div className="text-center mb-[clamp(3rem,8vw,6rem)]">
+        <div className="text-center mb-[clamp(2rem,5vw,3.5rem)] -mt-[clamp(0.5rem,2vw,1rem)]">
           <H1 className="text-yellow-400">MEDIA</H1>
         </div>
 
@@ -77,7 +77,7 @@ export default function MediaPage() {
 
         {/* Phone Mockups Container */}
         {!loading && !error && (
-          <div className="phone-mockups-container flex flex-col md:flex-row items-center justify-center gap-[clamp(2rem,5vw,4rem)] mb-[clamp(3rem,8vw,6rem)]">
+          <div className="phone-mockups-container mb-[clamp(3rem,8vw,6rem)]">
             {/* Phone 1 - First Post (Feed) */}
             {posts[0] && (
               <div className="w-full max-w-[clamp(250px,25vw,350px)] phone-container">
@@ -98,7 +98,7 @@ export default function MediaPage() {
                   <div className="phone-content bg-black flex flex-col">
                     {/* Instagram Header */}
                     <div className="flex items-center justify-between p-[clamp(0.5rem,1vw,0.75rem)] border-b border-gray-700">
-                      <div className="text-[clamp(0.875rem,1.8vw,1.125rem)] font-bold text-white">Instagram</div>
+                      <div className="text-[clamp(1rem,2vw,1.375rem)] font-bold text-white">Instagram</div>
                       <div className="flex gap-[clamp(0.5rem,1vw,0.75rem)]">
                         {/* Direct Message Icon */}
                         <svg className="w-[clamp(1.125rem,2vw,1.375rem)] h-[clamp(1.125rem,2vw,1.375rem)]" fill="white" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ export default function MediaPage() {
                     </div>
                     
                     {/* Post */}
-                    <div className="flex-1 overflow-y-auto">
+                    <div className="flex-1 overflow-y-auto min-h-0 scrollbar-hide">
                       <div className="p-[clamp(0.5rem,1vw,0.75rem)]">
                         <div className="flex items-center gap-[clamp(0.5rem,1vw,0.75rem)] mb-[clamp(0.5rem,1vw,0.75rem)]">
                           <Image
@@ -123,13 +123,13 @@ export default function MediaPage() {
                             height={40}
                             className="w-[clamp(1.75rem,3.5vw,2.25rem)] h-[clamp(1.75rem,3.5vw,2.25rem)] rounded-full object-cover flex-shrink-0"
                           />
-                          <div className="text-[clamp(0.7rem,1.4vw,0.8rem)] font-semibold text-white">illusionistaxe
+                          <div className="text-[clamp(0.85rem,1.6vw,1rem)] font-semibold text-white">illusionistaxe
                           </div>
                         </div>
                         {posts[0].media_type === 'VIDEO' ? (
                           <video
                             src={posts[0].media_url}
-                            className="w-full h-[clamp(180px,35vw,260px)] rounded mb-[clamp(0.5rem,1vw,0.75rem)] object-cover"
+                            className="w-full rounded mb-[clamp(0.5rem,1vw,0.75rem)] object-contain"
                             controls
                             autoPlay
                             muted
@@ -140,13 +140,13 @@ export default function MediaPage() {
                           <img
                             src={posts[0].media_url}
                             alt={posts[0].caption || 'Instagram post'}
-                            className="w-full h-[clamp(180px,35vw,260px)] rounded mb-[clamp(0.5rem,1vw,0.75rem)] object-cover"
+                            className="w-full rounded mb-[clamp(0.5rem,1vw,0.75rem)] object-contain"
                           />
                         )}
-                        <div className="text-[clamp(0.65rem,1.2vw,0.75rem)] font-semibold mb-[clamp(0.25rem,0.5vw,0.5rem)] text-white">
+                        <div className="text-[clamp(0.75rem,1.4vw,0.9rem)] font-semibold mb-[clamp(0.25rem,0.5vw,0.5rem)] text-white">
                           {formatNumber(posts[0].like_count)} likes
                         </div>
-                        <div className="text-[clamp(0.65rem,1.2vw,0.75rem)] text-white">
+                        <div className="text-[clamp(0.75rem,1.4vw,0.9rem)] text-white">
                           <span className="font-semibold">aakarshsbhat</span> {formatCaption(posts[0].caption)}
                         </div>
                       </div>
@@ -194,7 +194,7 @@ export default function MediaPage() {
             {/* Phone 2 - Second Post (Reel) */}
             {posts[1] && (
               <div className="w-full max-w-[clamp(250px,25vw,350px)] phone-container">
-                <div className="relative w-full  bg-transparent">
+                <div className="relative w-full aspect-[9/19.5] bg-transparent">
                   {/* Phone Border Image */}
                   <Image
                     src="/images/Screen_border.png"
@@ -213,7 +213,7 @@ export default function MediaPage() {
                       <video
                         src={posts[1].media_url}
                         poster={posts[1].thumbnail_url}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute top-0 left-0 right-0 w-full object-cover video-reel video-above-nav"
                         autoPlay
                         loop
                         muted
@@ -224,7 +224,7 @@ export default function MediaPage() {
                       <img
                         src={posts[1].media_url}
                         alt={posts[1].caption || 'Instagram post'}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute top-0 left-0 right-0 w-full object-cover img-above-nav"
                       />
                     )}
                     
@@ -235,14 +235,14 @@ export default function MediaPage() {
                         <svg className="w-[clamp(1.125rem,2.2vw,1.5rem)] h-[clamp(1.125rem,2.2vw,1.5rem)] drop-shadow-lg" fill="#ff3040" viewBox="0 0 24 24">
                           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
-                        <div className="text-[clamp(0.65rem,1.2vw,0.75rem)] font-semibold text-white drop-shadow-lg">{formatNumber(posts[1].like_count)}</div>
+                        <div className="text-[clamp(0.75rem,1.4vw,0.9rem)] font-semibold text-white drop-shadow-lg">{formatNumber(posts[1].like_count)}</div>
                       </div>
                       {/* Comment Icon */}
                       <div className="flex flex-col items-center gap-[clamp(0.25rem,0.5vw,0.5rem)]">
                         <svg className="w-[clamp(1.125rem,2.2vw,1.5rem)] h-[clamp(1.125rem,2.2vw,1.5rem)] drop-shadow-lg" fill="white" viewBox="0 0 24 24">
                           <path d="M21.99 4c0-1.1-.89-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/>
                         </svg>
-                        <div className="text-[clamp(0.65rem,1.2vw,0.75rem)] font-semibold text-white drop-shadow-lg">{formatNumber(posts[1].comments_count)}</div>
+                        <div className="text-[clamp(0.75rem,1.4vw,0.9rem)] font-semibold text-white drop-shadow-lg">{formatNumber(posts[1].comments_count)}</div>
                       </div>
                       {/* Share Icon */}
                       <div className="flex flex-col items-center gap-[clamp(0.25rem,0.5vw,0.5rem)]">
@@ -259,11 +259,11 @@ export default function MediaPage() {
                     </div>
                     
                     {/* Bottom Text */}
-                    <div className="absolute bottom-[clamp(2.5rem,5vw,4rem)] left-[clamp(0.5rem,1vw,0.75rem)] right-[clamp(2.5rem,5vw,4rem)] z-20">
-                      <div className="text-[clamp(0.7rem,1.4vw,0.8rem)] font-semibold text-white mb-[clamp(0.25rem,0.5vw,0.5rem)] drop-shadow-lg">
+                    <div className="absolute bottom-[clamp(3.5rem,7vw,5rem)] left-[clamp(0.5rem,1vw,0.75rem)] right-[clamp(2.5rem,5vw,4rem)] z-20">
+                      <div className="text-[clamp(0.85rem,1.6vw,1rem)] font-semibold text-white mb-[clamp(0.25rem,0.5vw,0.5rem)] drop-shadow-lg">
                         {formatCaption(posts[1].caption)}
                       </div>
-                      <div className="text-[clamp(0.65rem,1.2vw,0.75rem)] text-white drop-shadow-lg">
+                      <div className="text-[clamp(0.75rem,1.4vw,0.9rem)] text-white drop-shadow-lg">
                         {posts[1].caption.match(/#\w+/g)?.slice(0, 3).join(' ') || ''}
                       </div>
                     </div>
@@ -329,20 +329,55 @@ export default function MediaPage() {
                       <video
                         src={posts[2].media_url}
                         poster={posts[2].thumbnail_url}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute top-0 left-0 right-0 w-full object-cover video-above-nav"
+                        controls
                         autoPlay
-                        loop
                         muted
                         playsInline
-                        controls
+                        loop
                       />
                     ) : (
                       <img
                         src={posts[2].media_url}
                         alt={posts[2].caption || 'Instagram post'}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute top-0 left-0 right-0 w-full object-cover img-above-nav"
                       />
                     )}
+                    
+                    {/* Bottom Nav */}
+                    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-around bg-black py-[clamp(0.5rem,1vw,0.75rem)] z-20">
+                      {/* Home Icon */}
+                      <svg className="w-[clamp(1.25rem,2.2vw,1.5rem)] h-[clamp(1.25rem,2.2vw,1.5rem)]" fill="white" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                      </svg>
+                      {/* Search Icon */}
+                      <svg className="w-[clamp(1.25rem,2.2vw,1.5rem)] h-[clamp(1.25rem,2.2vw,1.5rem)]" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                      </svg>
+                      {/* Reels Icon */}
+                      <svg className="w-[clamp(1.25rem,2.2vw,1.5rem)] h-[clamp(1.25rem,2.2vw,1.5rem)]" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M9 8l6 4-6 4V8z"/>
+                      </svg>
+                      {/* Direct Message Icon */}
+                      <div className="relative">
+                        <svg className="w-[clamp(1.25rem,2.2vw,1.5rem)] h-[clamp(1.25rem,2.2vw,1.5rem)]" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
+                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                          <path d="M13 8H3"/>
+                          <path d="M17 12H3"/>
+                        </svg>
+                        <div className="absolute -top-1 -right-1 w-[clamp(0.5rem,0.8vw,0.625rem)] h-[clamp(0.5rem,0.8vw,0.625rem)] bg-red-500 rounded-full border-2 border-black"></div>
+                      </div>
+                      {/* Profile Icon */}
+                      <Image
+                        src="/images/akarsh-profile.jpg"
+                        alt="Profile"
+                        width={24}
+                        height={24}
+                        className="w-[clamp(1.25rem,2.2vw,1.5rem)] h-[clamp(1.25rem,2.2vw,1.5rem)] rounded-full object-cover border border-gray-600"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -368,7 +403,8 @@ export default function MediaPage() {
             See More On Instagram
           </a>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
+

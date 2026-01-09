@@ -5,6 +5,8 @@ import RequestAvailabilitySection from "../components/request-availability/Reque
 import About from "@/components/about";
 import ProfileSection from "@/components/profile-section";
 import HashScrollHandler from "@/components/HashScrollHandler";
+import MediaSection from "../components/media-section/MediaSection";
+
 import GallerySection from "../components/gallery-section/GallerySection";
 
 export default function Home() {
@@ -21,6 +23,9 @@ export default function Home() {
       </section>
       <section id="showreel">
         <VideosSection />
+      </section>
+      <section id="media">
+        <MediaSection />
       </section>
       <section id="publicshows">
         <PublicShowsSection />

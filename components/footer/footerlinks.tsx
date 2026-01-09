@@ -6,19 +6,25 @@ export function DesktopFooterLinks() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleSection = (id?: string) => {
-    if (pathname === "/") {
-      if (!id) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push(id ? `/#${id}` : "/");
-    }
-  };
+ const handleSection = (id?: string) => {
+  const hash = window.location.hash;
 
+  if (pathname === "/") {
+    if (!id) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (hash) router.replace("/");
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (hash !== `#${id}`) {
+      router.replace(`/#${id}`);
+    }
+  } 
+  else {
+    router.push(id ? `/#${id}` : "/");
+  }
+};
   return (
     <div className="hidden lg:flex flex-wrap justify-evenly items-center gap-6 xl:gap-8 mt-4 w-full">
       <div className="flex items-center gap-10">

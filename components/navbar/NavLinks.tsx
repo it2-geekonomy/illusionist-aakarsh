@@ -7,15 +7,22 @@ export default function NavLinks({ onClickLink }: { onClickLink?: () => void }) 
   const router = useRouter();
 
   const handleSection = (id: string) => {
-    if (pathname === "/") {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-      if (onClickLink) onClickLink?.();
-    } else {
-      router.push(`/#${id}`);
-    }
-  };
+  const hash = window.location.hash;
 
+  if (pathname === "/") {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    if (hash !== `#${id}`) {
+      router.replace(`/#${id}`);
+    }
+
+    onClickLink?.();
+  } 
+  else {
+    router.push(`/#${id}`);
+  }
+};
   return (
     <>
       <P

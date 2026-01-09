@@ -148,7 +148,7 @@ export default function MediaSection() {
                     )}
 
                     {/* ===== MEDIA ===== */}
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden relative">
                       {post.media_type === "VIDEO" ? (
                         <video
                           src={post.media_url}
@@ -173,22 +173,70 @@ export default function MediaSection() {
                             }`}
                         />
                       )}
+
+                      {/* ===== ACTION BAR (2ND AND 3RD PHONES - RIGHT SIDE LIKE REELS) ===== */}
+                      {index !== 0 && (
+                        <div className="absolute right-2 bottom-20 flex flex-col items-center gap-5 z-30">
+                          {/* Like Icon */}
+                          <div className="flex flex-col items-center gap-1">
+                            <svg
+                              className="w-7 h-7 text-white"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <span className="text-white text-xs font-semibold">
+                              {formatNumber(post.like_count)}
+                            </span>
+                          </div>
+
+                          {/* Comment Icon */}
+                          <div className="flex flex-col items-center gap-1">
+                            <svg
+                              className="w-7 h-7 text-white"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                            <span className="text-white text-xs font-semibold">
+                              {formatNumber(post.comments_count)}
+                            </span>
+                          </div>
+
+                          {/* Three Dots Icon */}
+                          <svg
+                            className="w-7 h-7 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle cx="12" cy="5" r="1.5" />
+                            <circle cx="12" cy="12" r="1.5" />
+                            <circle cx="12" cy="19" r="1.5" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
 
-                    {/* ===== CAPTION (FIRST PHONE ONLY) ===== */}
-                    {index === 0 && (
-                      <div className="p-3 text-white text-sm">
-                        <div className="font-semibold mb-1">
-                          {formatNumber(post.like_count)} likes
-                        </div>
-                        <div>
-                          <span className="font-semibold">
-                            illusionistaxe
-                          </span>{" "}
-                          {formatCaption(post.caption)}
-                        </div>
+                    {/* ===== CAPTION ===== */}
+                    <div className="p-3 text-white text-sm">
+                      <div className="font-semibold mb-1">
+                        {formatNumber(post.like_count)} likes
                       </div>
-                    )}
+                      <div>
+                        <span className="font-semibold">
+                          illusionistaxe
+                        </span>{" "}
+                        {formatCaption(post.caption)}
+                      </div>
+                    </div>
 
                     {/* ===== BOTTOM NAV ===== */}
                     <div className="flex justify-around items-center py-2 border-t border-gray-700">

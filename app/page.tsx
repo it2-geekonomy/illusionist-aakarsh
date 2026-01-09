@@ -4,12 +4,13 @@ import PublicShowsSection from "../components/public-shows/PublicShowsSection";
 import RequestAvailabilitySection from "../components/request-availability/RequestAvailabilitySection";
 import About from "@/components/about";
 import ProfileSection from "@/components/profile-section";
-
+import HashScrollHandler from "@/components/HashScrollHandler";
 import GallerySection from "../components/gallery-section/GallerySection";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <HashScrollHandler />
       <Banner />
       <section id="about">
         <About />

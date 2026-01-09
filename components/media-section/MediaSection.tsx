@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { H1, P } from "@/components/typography/typography";
+import { H2, H5, P } from "@/components/typography/typography";
 
 interface InstagramPost {
   id: string;
@@ -46,11 +46,13 @@ export default function MediaSection() {
 
   return (
     <section className="w-full bg-black">
-      <div className="max-w-[1800px] mx-auto px-[clamp(1rem,4vw,3rem)] py-[clamp(2rem,5vw,4rem)]">
+      <div className="max-w-[1800px] mx-auto px-[clamp(1rem,4vw,3rem)] pt-[clamp(1rem,3vw,2rem)] pb-[clamp(2rem,5vw,4rem)]">
 
         {/* TITLE */}
-        <div className="text-center mb-14">
-          <H1 className="text-yellow-400">MEDIA</H1>
+        <div className="text-center mb-8">
+        <H2 className="text-[#f5c518] text-2xl sm:text-3xl md:text-4xl lg:text-[3.2rem] xl:text-[3.8rem] font-extrabold tracking-widest">
+                  MEDIA
+                </H2>
         </div>
 
         {loading && <P className="text-white text-center">Loading...</P>}
@@ -279,12 +281,11 @@ export default function MediaSection() {
         )}
 
         {/* DESCRIPTION */}
-        <div className="text-center mb-10">
-          <P className="text-white font-bold max-w-5xl mx-auto">
-            Trusted By Celebrities, Global Brands, And Elite Audiences,
-            Aakarsh S Bhat Continues To Redefine The Art Of Illusion Across
-            Stages And Screens Worldwide
-          </P>
+        <div className="text-center mb-10 w-full">
+          <H5 className="text-white text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed">
+            <span className="block">Trusted By Celebrities, Global Brands, And Elite Audiences,</span>
+            <span className="block">Aakarsh S Bhat Continues To Redefine The Art Of Illusion Across Stages And Screens Worldwide</span>
+          </H5>
         </div>
 
         {/* BUTTON */}
@@ -294,12 +295,13 @@ export default function MediaSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              inline-block bg-yellow-400 text-black font-bold
-              px-10 py-4 rounded-lg
-              hover:bg-yellow-500 transition
+              inline-block bg-[#FFD700] text-black font-bold
+              px-8 py-3 md:py-4 rounded-3xl
+              text-[clamp(0.875rem,1.2vw,1rem)]
+              hover:bg-[#FFC700] transition-colors
             "
           >
-            See More On Instagram
+            <H5>See More On Instagram</H5>
           </a>
         </div>
       </div>

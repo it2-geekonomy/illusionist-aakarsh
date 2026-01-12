@@ -96,20 +96,20 @@ function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
           <div className="bg-white px-[clamp(0.75rem,2vw,1.5rem)] py-[clamp(0.75rem,1.5vw,1.125rem)] gap-[clamp(0.625rem,2vw,1.25rem)] min-h-[clamp(110px,15vw,135px)] flex items-start sm:items-center">
             {/* Date */}
             <div className="flex-shrink-0 min-w-[clamp(65px,8vw,95px)] pt-1">
-              <H6 className="uppercase">
+              <H6 className="uppercase text-gray-900">
                 {event.date.split(" ")[0]}
               </H6>
-              <H3 className="leading-none mt-0.5">
+              <H3 className="leading-none mt-0.5 text-gray-900">
                 {event.date.split(" ")[1]}
               </H3>
             </div>
 
             {/* Venue / Time */}
             <div className="flex-1 min-w-0 space-y-2">
-              <P className="font-semibold leading-snug">
+              <P className="font-semibold leading-snug text-gray-900">
                 <span className="font-bold">Venue:</span> {event.venue || "--"}
               </P>
-              <P className="font-semibold leading-snug">
+              <P className="font-semibold leading-snug text-gray-900">
                 <span className="font-bold">Time:</span> {event.time || "--"}
               </P>
             </div>

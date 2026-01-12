@@ -1,7 +1,17 @@
+'use client';
+
 import { H5, Strong } from './typography/typography';
 import Image from 'next/image';
 
 export default function ProfileSection() {
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/profile.pdf';
+    link.download = 'profile.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <section className="w-full bg-black">
       <div className="w-full flex flex-col lg:flex-row">
@@ -27,7 +37,10 @@ export default function ProfileSection() {
 
             {/* Download Profile Button */}
             <div className="pt-4 md:pt-6 lg:pt-2 xl:pt-6 text-center">
-              <button className="bg-[#FFD700] text-black font-bold px-8 py-3 md:py-4 rounded-3xl text-[clamp(0.875rem,1.2vw,1rem)] hover:bg-[#FFC700] transition-colors">
+              <button 
+                onClick={handleDownload}
+                className="bg-[#FFD700] text-black font-bold px-8 py-3 md:py-4 rounded-3xl text-[clamp(0.875rem,1.2vw,1rem)] hover:bg-[#FFC700] transition-colors"
+              >
                <H5> Download Profile </H5>
               </button>
             </div>

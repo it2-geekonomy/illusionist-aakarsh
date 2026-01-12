@@ -51,9 +51,14 @@ export default function PublicShowsSection() {
 
         {/* View All Shows Button - Centered across full page width */}
         <div className="mt-10 sm:mt-12 md:mt-16 flex justify-center">
-          <button className="bg-[#f5c518] text-black font-bold py-4 sm:py-4.5 md:py-5 px-10 sm:px-12 md:px-16 rounded-3xl text-lg sm:text-xl md:text-2xl hover:bg-[#e5b508] transition-colors">
+          <a
+            href="https://in.bookmyshow.com/person/aakarsh-bhat/1057944"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#f5c518] text-black font-bold py-4 sm:py-4.5 md:py-5 px-10 sm:px-12 md:px-16 rounded-3xl text-lg sm:text-xl md:text-2xl hover:bg-[#e5b508] transition-colors inline-block text-center"
+          >
             View All Shows
-          </button>
+          </a>
         </div>
       </div>
     </section>

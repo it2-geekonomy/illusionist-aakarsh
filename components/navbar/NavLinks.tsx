@@ -1,34 +1,47 @@
 "use client";
 import { P, Strong } from "../typography/typography";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function NavLinks({ onClickLink }: { onClickLink?: () => void }) {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    if (onClickLink) onClickLink(); 
-  };
+  const pathname = usePathname();
+  const router = useRouter();
 
+  const handleSection = (id: string) => {
+  const hash = window.location.hash;
+
+  if (pathname === "/") {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    if (hash !== `#${id}`) {
+      router.replace(`/#${id}`);
+    }
+
+    onClickLink?.();
+  } 
+  else {
+    router.push(`/#${id}`);
+  }
+};
   return (
     <>
       <P
         className="text-white hover:text-yellow-400 transition inline-block cursor-pointer"
-        onClick={() => scrollToSection("about")}
+        onClick={() => handleSection("about")}
       >
         <Strong>ABOUT</Strong>
       </P>
 
       <P
         className="text-white hover:text-yellow-400 transition inline-block cursor-pointer"
-        onClick={() => scrollToSection("gallery")}
+        onClick={() => handleSection("gallery")}
       >
         <Strong>GALLERY</Strong>
       </P>
 
       <P
         className="text-white hover:text-yellow-400 transition inline-block cursor-pointer"
-        onClick={() => scrollToSection("contact")}
+        onClick={() => handleSection("contact")}
       >
         <Strong>CONTACT</Strong>
       </P>

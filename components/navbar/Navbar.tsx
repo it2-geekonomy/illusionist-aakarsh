@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 import { P, Strong } from "../typography/typography";
+
 export default function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
+
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [scrolledUp, setScrolledUp] = useState(false);
@@ -27,6 +30,7 @@ export default function Navbar() {
         setShowNavbar(true);
         setScrolledUp(true);
       }
+
       setLastScrollY(currentScrollY);
     };
 
@@ -34,9 +38,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const scrollToTop = () => {
+  const handleLogoClick = () => {
+  if (pathname === "/") {
+ 
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+
+    window.history.replaceState(null, "", "/");
+  } else {
+    router.push("/");
+  }
+};
 
   return (
     <header
@@ -49,7 +60,7 @@ export default function Navbar() {
     >
       <div className="w-full flex items-center px-4 h-auto md:h-[100px]">
         <div
-          onClick={scrollToTop}
+          onClick={handleLogoClick}
           className="flex items-center cursor-pointer"
         >
           <Image
@@ -65,7 +76,7 @@ export default function Navbar() {
           <NavLinks />
         </nav>
         <P className="hidden lg:flex items-center ml-auto">
-          <button 
+          <button
             onClick={() => router.push("/events")}
             className="bg-yellow-400 text-black font-bold px-4 py-3 rounded-full hover:bg-yellow-300 transition"
           >

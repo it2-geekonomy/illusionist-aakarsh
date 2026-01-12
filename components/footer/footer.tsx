@@ -33,8 +33,8 @@ export default function Footer() {
         <Small className="mt-1 text-center">
           World-Class Corporate Illusion Entertainment
         </Small>
-        <DesktopFooterLinks scrollToSection={scrollToSection} />
-        <MobileFooterLinks scrollToSection={scrollToSection} />
+        <DesktopFooterLinks/>
+        <MobileFooterLinks/>
         <div
           className="w-full"
           style={{ height: "1px", backgroundColor: "gray" }}

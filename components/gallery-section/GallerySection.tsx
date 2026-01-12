@@ -62,7 +62,7 @@ export default function GallerySection() {
       {/* Mobile/Small Screen Carousel */}
       <div className="lg:hidden w-full overflow-hidden">
         <div className="relative flex items-center justify-center h-[180px] sm:h-[300px] md:h-[400px]">
-          <div className="relative w-full max-w-full flex items-center justify-between px-4 sm:px-6 md:px-12">
+          <div className="relative w-full max-w-full flex items-center justify-center gap-2 sm:gap-2.5 md:gap-3 px-4 sm:px-5 md:px-6 lg:px-8">
             {/* Navigation Arrow - Left */}
             <button
               onClick={prevCarousel}
@@ -86,32 +86,32 @@ export default function GallerySection() {
             </button>
 
             {/* Previous Image (Background, Left) */}
-            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4">
+            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0">
               <img
                 src={galleryImages[getPrevIndex(carouselIndex)]?.src}
                 alt={galleryImages[getPrevIndex(carouselIndex)]?.alt}
-                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-cover"
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-contain"
               />
             </div>
 
             {/* Current Image (Center, Large) */}
             <div
               onClick={() => openModal(galleryImages[carouselIndex], carouselIndex)}
-              className="relative z-20 cursor-pointer transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4"
+              className="relative z-20 cursor-pointer transition-all duration-300 flex-shrink-0"
             >
               <img
                 src={galleryImages[carouselIndex]?.src}
                 alt={galleryImages[carouselIndex]?.alt}
-                className="w-32 h-32 sm:w-44 sm:h-44 md:w-72 md:h-72 object-cover"
+                className="w-32 h-32 sm:w-44 sm:h-44 md:w-72 md:h-72 object-contain"
               />
             </div>
 
             {/* Next Image (Background, Right) */}
-            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0 mx-2 sm:mx-2 md:mx-4">
+            <div className="relative z-10 opacity-60 transition-all duration-300 flex-shrink-0">
               <img
                 src={galleryImages[getNextIndex(carouselIndex)]?.src}
                 alt={galleryImages[getNextIndex(carouselIndex)]?.alt}
-                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-cover"
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 object-contain"
               />
             </div>
 
@@ -140,23 +140,136 @@ export default function GallerySection() {
         </div>
       </div>
 
-      {/* Desktop Grid - 4 columns */}
-      <div className="hidden lg:block w-full overflow-hidden">
-        <div className="grid grid-cols-4 gap-x-0 gap-y-14 items-start content-start w-full">
-          {/* All 8 images */}
-          {galleryImages.map((image, index) => (
+      {/* Desktop Flex - 4 columns, 2 rows */}
+      <div className="hidden lg:block w-full overflow-hidden px-0 mx-0">
+        <div className="flex flex-wrap w-full gap-0 gap-y-14 m-0 p-0 text-[0]">
+          {/* Row 1 - Image 1: Nayan Mongia */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
             <div
-              key={image.id}
-              onClick={() => openModal(image, index)}
-              className="cursor-pointer group overflow-hidden aspect-square relative bg-black m-0 p-0"
+              onClick={() => openModal(galleryImages[0], 0)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
             >
               <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-contain object-top"
+                src={galleryImages[0].src}
+                alt={galleryImages[0].alt}
+                className="w-full h-full object-contain object-top block m-0 p-0 align-top"
               />
             </div>
-          ))}
+          </div>
+
+          {/* Row 1 - Image 2: Sachin Tendulkar */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[1], 1)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[1].src}
+                alt={galleryImages[1].alt}
+                className="w-full h-full object-contain object-top block ml-12 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 1 - Image 3: Anant Ambani */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[2], 2)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black ml-4 w-full h-full"
+            >
+              <img
+                src={galleryImages[2].src}
+                alt={galleryImages[2].alt}
+                className="w-full h-full object-contain object-top block ml-12 mr-10 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 1 - Image 4: Rashmika Mandanna */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[3], 3)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[3].src}
+                alt={galleryImages[3].alt}
+                className="w-full h-full object-contain object-right block m-0 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 2 - Image 5: Puneet Rajkumar */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[4], 4)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[4].src}
+                alt={galleryImages[4].alt}
+                className="w-full h-full object-contain object-top block m-0 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 2 - Image 6: Disha Patani */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[5], 5)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[5].src}
+                alt={galleryImages[5].alt}
+                className="w-full h-full object-contain object-top block ml-8 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 2 - Image 7: Anil Kapoor */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[6], 6)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[6].src}
+                alt={galleryImages[6].alt}
+                className="w-full h-full object-contain object-top block ml-10 p-0 align-top"
+              />
+            </div>
+          </div>
+
+          {/* Row 2 - Image 8: Gautam Adani */}
+          {/* Adjust wrapper div width here: w-1/4, w-[24%], w-[calc(25%-1rem)], etc. */}
+          {/* Adjust margins here: mr-4, ml-2, mx-auto, etc. */}
+          <div className="w-1/4 shrink-0">
+            <div
+              onClick={() => openModal(galleryImages[7], 7)}
+              className="cursor-pointer group overflow-hidden aspect-square relative bg-black w-full h-full"
+            >
+              <img
+                src={galleryImages[7].src}
+                alt={galleryImages[7].alt}
+                className="w-full h-full object-contain object-right block m-0 p-0 align-top"
+              />
+            </div>
+          </div>
         </div>
       </div>
 

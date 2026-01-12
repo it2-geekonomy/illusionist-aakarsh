@@ -150,9 +150,20 @@ function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
           </div>
 
           {/* Book Tickets Button */}
-          <button className="mt-[clamp(1rem,2vw,1.5rem)] w-full bg-yellow-400 text-black font-bold text-[clamp(1rem,2vw,1.25rem)] py-[clamp(0.625rem,1.5vw,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] rounded-[clamp(0.5rem,1.5vw,0.75rem)] hover:bg-yellow-500 transition-colors">
-            Book tickets
-          </button>
+          {event.ticket_link ? (
+            <a
+              href={event.ticket_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-[clamp(1rem,2vw,1.5rem)] w-full bg-yellow-400 text-black font-bold text-[clamp(1rem,2vw,1.25rem)] py-[clamp(0.625rem,1.5vw,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] rounded-[clamp(0.5rem,1.5vw,0.75rem)] hover:bg-yellow-500 transition-colors inline-block text-center"
+            >
+              Book tickets
+            </a>
+          ) : (
+            <button className="mt-[clamp(1rem,2vw,1.5rem)] w-full bg-yellow-400 text-black font-bold text-[clamp(1rem,2vw,1.25rem)] py-[clamp(0.625rem,1.5vw,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] rounded-[clamp(0.5rem,1.5vw,0.75rem)] hover:bg-yellow-500 transition-colors">
+              Book tickets
+            </button>
+          )}
         </div>
       </div>
     </div>

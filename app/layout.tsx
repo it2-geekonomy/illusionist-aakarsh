@@ -3,10 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/footer";
-const goldmanBold = localFont({
-  src: "../fonts/fonts/fonnts.com-Goldman_Bold.ttf",
-  variable: "--font-goldman-bold",
-  weight: "700",
+const goldman = localFont({
+  src: "../fonts/fonts/Goldman-Regular.ttf",
+  variable: "--font-goldman",
+  weight: "400",
   display: "swap",
 });
 
@@ -38,10 +38,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ fontFamily: goldmanBold.style.fontFamily }}>
+    <html lang="en" style={{ fontFamily: goldman.style.fontFamily }}>
       <body
-        className={`${goldmanBold.variable} antialiased`}
-        style={{ fontFamily: goldmanBold.style.fontFamily }}
+        className={`${goldman.variable} antialiased`}
+        style={{ fontFamily: goldman.style.fontFamily }}
       >
         <Navbar />
         {children}

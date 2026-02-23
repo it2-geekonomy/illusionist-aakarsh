@@ -81,12 +81,12 @@ function EventCard({ event, onClick }: { event: Event; onClick: () => void }) {
       {!isPlaceholder ? (
         <>
           {/* Image */}
-          <div className="relative w-full aspect-[clamp(1.6,16/9,1.778)] overflow-hidden">
+          <div className="relative w-full aspect-[16/10] overflow-hidden bg-black">
             <Image
               src={event.banner_image}
               alt={event.city}
               fill
-              className="object-fit w-full h-full"
+              className="object-contain"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={event.id <= 3}
             />

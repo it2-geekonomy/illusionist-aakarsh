@@ -11,12 +11,12 @@ export interface Event {
 export const events: Event[] = [
   {
     id: 1,
-    banner_image: "/images/feb-22-event.jpg",
+    banner_image: "/publicshow.webp",
     city: "BANGALORE",
-    date: "Feb 22",
-    venue: "Ramana Maharshi Heritage Auditorium",
-    time: "6:30 PM onwards",
-    ticket_link: "https://in.bookmyshow.com/events/the-matrix-magic-mentalism-show-of-aakarsh/ET00456396?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnt3DOL8JExhSFpG94rOfEc35SB3yBv8gZoiI8z2r3lEKug-it1TZKmhz06Ko_aem_3_4k3kAqeWesDUBdNJ77gQ",
+    date: "Apr 19",
+    venue: "Ramana Maharshi Heritage Auditorium, Sanjay Nagar",
+    time: "6:30 PM",
+    ticket_link: "https://in.bookmyshow.com/events/the-matrix-magic-mentalism-show-of-aakarsh/ET00456396",
   },
   // {
   //   id: 2,

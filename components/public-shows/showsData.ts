@@ -12,13 +12,13 @@ export interface Show {
 export const SHOWS: Show[] = [
   {
     id: "1",
-    date: 22,
-    month: "FEB",
+    date: 19,
+    month: "APR",
     city: "Bangalore",
-    venue: "Ramana Maharshi Heritage Auditorium",
-    time: "6:30 PM onwards",
+    venue: "Ramana Maharshi Heritage Auditorium, Sanjay Nagar",
+    time: "6:30 PM",
     backgroundImage: "/public-shows background image/public-shows background image1.webp",
-    ticketUrl: "https://in.bookmyshow.com/events/the-matrix-magic-mentalism-show-of-aakarsh/ET00456396?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnt3DOL8JExhSFpG94rOfEc35SB3yBv8gZoiI8z2r3lEKug-it1TZKmhz06Ko_aem_3_4k3kAqeWesDUBdNJ77gQ",
+    ticketUrl: "https://in.bookmyshow.com/events/the-matrix-magic-mentalism-show-of-aakarsh/ET00456396",
   },
   // {
   //   id: "2",

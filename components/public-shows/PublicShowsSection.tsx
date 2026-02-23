@@ -22,12 +22,13 @@ export default function PublicShowsSection() {
           
           {/* Left Side - Promotional Image */}
           <div className="w-full order-1 flex items-center justify-center lg:justify-start lg:-ml-4 xl:-ml-6">
-            <div className="relative w-full max-w-[500px] lg:max-w-[620px] aspect-square lg:aspect-[4/3] rounded-lg overflow-hidden">
+            <div className="relative w-full max-w-[500px] lg:max-w-[620px] aspect-[3/4] rounded-lg overflow-hidden bg-black">
               <Image
                 src="/publicshow.webp"
                 alt="Public Shows - The Matrix"
                 fill
-                className="lg:object-cover"
+                className="object-contain"
+                sizes="(max-width: 1024px) 500px, 620px"
               />
             </div>
           </div>
